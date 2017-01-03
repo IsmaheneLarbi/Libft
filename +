@@ -1,0 +1,88 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/28 13:44:03 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/01/02 20:49:02 by ilarbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
+
+int		ft_wordcount(char *string, char c)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (string[i] && c != 0)
+	{
+		if ((string[i] != c) && (string[i - 1] == c || i == 0))
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+char	**ft_strsplit(const char *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	count;
+	char	*reader;
+	char	**words;
+	
+	i = 0;
+	j = 0;
+	reader = (char *)s;
+	count = ft_wordcount(reader, c);
+	words = (char **)malloc(sizeof(char *) * (count + 1));
+	if (words == NULL) 
+		return NULL;
+	words[count] = 0;
+	while (*reader && words)
+	{
+		if (*reader != c)
+			j++;
+		printf("mot fini %s\n", reader);	
+		if ((*reader == c || *(reader + 1) == '\0') && j)
+		{
+			printf("j = %zu\n", j);
+			words[i] = (char *)malloc(sizeof(char) * (j + 1));
+			if (words[i] && i < count)
+			{	
+				((*(reader + 1) == 0) ? (ft_memcpy(words[i], reader - j + 1, j)) \
+							: (ft_memcpy(words[i], reader - j, j)));
+				words[i][j]= '\0';
+				printf("ligne %zu : %s\n", i, words[i]);
+				i++;
+				j = 0;
+			}
+		}
+		reader++;
+	}
+	return (words);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	ft_strsplit(argv[1], ' ');
+	
+	i = 0;
+	if (argc != 2)
+		return (1);
+	//printf("%d\n", ft_wordcount(argv[1], ' '));
+	/*while (r[i])
+	{
+			printf(" %s ", r[i]);
+		i++;
+	}*/
+		return (0);
+}

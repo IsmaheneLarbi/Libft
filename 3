@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/15 18:40:24 by ilarbi            #+#    #+#             */
+/*   Updated: 2016/12/15 19:56:19 by ilarbi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+//	char	*ptr;
+	char	*ptr2;
+
+	ptr2 = (char *)&s[1];
+/*
+	ptr = ft_strdup(s);
+	ptr2 = &ptr[1];*/
+	/*while (ptr2 != NULL)
+	{
+		ptr2 = ft_strchr(&ptr[1], c);
+		printf("ptr : %s\n", ptr);
+		printf("ptr2 : %s\n", ptr2);
+		ptr = ptr2;
+	}	
+	ptr = ptr2;*/
+	if (ptr2 != NULL)
+	{
+		s = ptr2;
+		printf("appel a la fct rec\n");
+		ptr2 = ft_strrchr(&s[1], c);
+		//return ((ptr2 == NULL) ? ptr : ptr2);
+		printf("ptr = %s\n", s);
+	}
+	return (s);
+}
+
+int		main(int argc, char **argv)
+{
+	//int		i;
+
+	//i = 0;
+	if (argc != 3)
+		return (1);
+	printf("strrchr : %s\n", strrchr(argv[1], atoi(argv[2])));
+	printf("ft_strrchr : %s\n", ft_strrchr(argv[1], atoi(argv[2])));
+	return (0);
+}
