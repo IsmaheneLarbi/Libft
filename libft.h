@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 21:22:09 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/02 14:06:40 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/05 20:20:54 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ struct				s_list
 	t_list			*next;
 };
 
-t_list				*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void const *,
 			size_t));
@@ -72,6 +72,7 @@ char				*ft_strmapi(char const *s, char (*f) (unsigned int, char));
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
+char				*ft_itoa(int n);
 char				**ft_strsplit(const char *s, char c);
 int					ft_atoi(const char *str);
 int					ft_isascii(int c);

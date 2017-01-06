@@ -6,11 +6,10 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/28 13:44:03 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/03 22:37:06 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/05 14:04:45 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -29,47 +28,34 @@ static	int		ft_wordcount(char *string, char c)
 	}
 	return (count);
 }
-static	char	*ft_strfill(char **reader, char c)
-{
-	char	*str;
-	size_t	word;
-	size_t	j;
 
+static	char	*ft_readline(char **reader, char c)
+{
+	size_t	j;
+	char	*str;
+
+	j = 0;
 	str = NULL;
-	word = 0;
-	while (reader && !word)
+	if (reader && *reader)
 	{
-		printf("je rentre\n");
-		j = 0;
-		while ((*(*reader)++) != c)
+		while (*(*reader) && *(*reader) == c)
+			(*reader)++;
+		while (*(*reader) && *(*reader) != c)
+		{
 			j++;
+			(*reader)++;
+		}
 		if (j)
 		{
-			//allocation
 			str = (char *)malloc(sizeof(char) * (j + 1));
-			word = 1;
-			//copie
-			if (str)
-			{
-				if (*(*(reader + 1)) == 0 && *(*reader) != c)
-				{
-					ft_memcpy(str, *(reader - j + 1), j);
-					ft_putstr("****if****");
-				}
-				else
-				{
-					ft_memcpy(str, *(reader - j), j);
-					ft_putstr("++++else++++");
-				}
-				str[j] = '\0';
-			}
+			str = ft_memcpy(str, (*reader - j), j);
+			str[j] = '\0';
 		}
-		//(*reader)++;
 	}
-	return ((reader && str) ? str : NULL);
+	return (str);
 }
 
-char	**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -89,26 +75,9 @@ char	**ft_strsplit(const char *s, char c)
 		words[count] = 0;
 		while (*reader && i < count)
 		{
-			printf("yes\n");
-			words[i] = ft_strfill(&reader, c);
+			words[i] = ft_readline(&reader, c);
 			i++;
-			reader++;
 		}
 	}
 	return ((s) ? words : NULL);
-}
-
-int		main(void)
-{
-	size_t	i;
-	char	*s = "      split       this for   me  !       ";
-	char	**args;
-
-	i = 0;
-	args = ft_strsplit(s, ' ');
-	while (args[i])
-	{
-
-	}
-	return (0);
 }

@@ -6,13 +6,14 @@
 #    By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 11:58:56 by ilarbi            #+#    #+#              #
-#    Updated: 2017/01/02 14:02:01 by ilarbi           ###   ########.fr        #
+#    Updated: 2017/01/05 20:35:00 by ilarbi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS=-Wall -Wextra -Werror
 NAME= libft.a
-SRC= ft_lstmap.c \
+SRC= ft_itoa.c \
+	 ft_lstmap.c \
 	 ft_lstadd.c \
 	 ft_lstdel.c \
 	 ft_lstiter.c \
