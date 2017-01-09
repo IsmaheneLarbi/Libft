@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/30 21:23:44 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/31 18:03:21 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:21:42 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 		{
 			f(current);
 			current = current->next;
-		}	
+		}
 	}
 	return ;
 }

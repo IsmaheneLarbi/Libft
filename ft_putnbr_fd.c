@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 21:52:02 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/22 21:59:41 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/08 18:34:46 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		nbr = (-1) * nbr;
 	}
-	if (nbr > 10)
+	if (nbr >= 10)
 	{
 		rest = nbr % 10;
 		nbr = nbr / 10;

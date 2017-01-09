@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 11:55:07 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/03 20:27:49 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:42:10 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 		fresh = (char *)malloc(sizeof(char) * (len + 1));
 		if (fresh == NULL)
 			return (NULL);
-			if (size == 0 || len == 0)
-			{
-				*fresh = '\0';
-				return (fresh);
-			}
-			while (j < len && i < start + len)
-				fresh[j++] = s[i++];
-			fresh[len] = 0;
-	}	
+		if (size == 0 || len == 0)
+		{
+			*fresh = '\0';
+			return (fresh);
+		}
+		while (j < len && i < start + len)
+			fresh[j++] = s[i++];
+		fresh[len] = 0;
+	}
 	return ((s) ? fresh : NULL);
 }

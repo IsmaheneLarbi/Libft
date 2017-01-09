@@ -6,18 +6,17 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/06 13:17:56 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/06 17:51:44 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/08 16:48:48 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
-static	size_t	ft_numberlength(int nbr)
+static	size_t	ft_numberlength(signed long nbr)
 {
 	size_t	len;
-	
+
 	len = 0;
 	if (nbr == 0)
 		return (1);
@@ -29,47 +28,47 @@ static	size_t	ft_numberlength(int nbr)
 	return (len);
 }
 
-char	*ft_itoa(int nbr)
+static	char	*ft_convert(char **number, signed long *nbr,
+		size_t isneg, size_t *len)
 {
-//	long		nbr;
-	long		rest;
-	size_t		len;
-	size_t		isneg;
-	char		*number;
+	long	rest;
 
-	//nbr = (long)n;
-	printf("nbr = %d\n", nbr);
+	rest = 0;
+	if (isneg && *nbr != 0)
+		*number[0] = '-';
+	*(*number + *len) = '\0';
+	--*len;
+	if (*nbr == 0)
+		*(*number + (*len)) = 0 + 48;
+	while (number && *number && nbr && *nbr > 0)
+	{
+		rest = *nbr % 10;
+		*nbr = *nbr / 10;
+		*(*number + *len) = (char)(rest + 48);
+		--*len;
+	}
+	return (*number);
+}
+
+char			*ft_itoa(int n)
+{
+	signed	long	nbr;
+	size_t			len;
+	size_t			isneg;
+	char			*number;
+
+	nbr = (signed long)n;
 	len = 0;
+	isneg = 0;
 	if (nbr < 0)
 	{
 		len++;
 		nbr = (-1) * nbr;
 		isneg = 1;
 	}
-	rest = nbr % 10;
 	len += ft_numberlength(nbr);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (number)
-	{
-		if (isneg && nbr != 0)
-			number[0] = '-';
-		number[len--] = '\0';
-		if (nbr == 0)
-			number[len] = 0 + 48;
-		while (nbr > 0) 
-		{
-			rest = nbr % 10;
-			nbr = nbr / 10;
-			number[len--] = rest + 48;
-		}
-	}
+		number = ft_convert(&number, &nbr, isneg, &len);
 	return (number);
-}
-
-int		main(void)
-{
-	printf("ft_itoa(-623) = %s\n", ft_itoa(-623));
-	printf("ft_itoa(-1234) = %s\n", ft_itoa(-1234));
-	printf("ft_itoa(-2147483647 -1) = %s\n", ft_itoa(-2147483647 -1));
-	return (0);
 }

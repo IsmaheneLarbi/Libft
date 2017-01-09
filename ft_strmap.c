@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 12:55:10 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/03 20:05:17 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:37:57 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ char	*ft_strmap(char const *s, char (*f) (char))
 		fresh = (char *)malloc(size + 1);
 		if (size == 0)
 			return ((char *)s);
-	/*if (f == NULL)
-	{
-		fresh = (char *)s;
-		return (fresh);
-	}*/
 		if (fresh == NULL)
 			return (NULL);
 		while (s && f && i < size)

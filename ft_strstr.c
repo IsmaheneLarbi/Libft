@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 16:24:17 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/31 18:07:59 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:40:57 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ char	*ft_strstr(const char *big, const char *little)
 		i = ++start;
 		while (big[i] && little[j] && (big[i] != little[j]))
 			i++;
-		//start = i;
 		ptr = (char *)&big[i];
-		while (big[i] && little[j] && (big[i] == little[j]) )
+		while (big[i] && little[j] && (big[i] == little[j]))
 		{
 			i++;
 			j++;

@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 16:10:21 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/06 13:19:16 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:37:26 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_putnbr(int n)
 {
 	int			rest;
-	long int	nbr;
+	long		nbr;
 
-	nbr = n;
+	nbr = (signed long)n;
 	if (nbr < 0)
 	{
 		ft_putchar('-');

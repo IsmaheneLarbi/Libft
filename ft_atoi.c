@@ -6,11 +6,10 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:19:11 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/30 19:56:03 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 13:14:19 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 int		ft_atoi(const char *str)
@@ -38,5 +37,5 @@ int		ft_atoi(const char *str)
 		return (0);
 	if (result > 2147483647 && isneg == 0)
 		return (-1);
-	return ((!str[i] && !isneg) ? result : -result);
+	return ((!isneg) ? result : -result);
 }
