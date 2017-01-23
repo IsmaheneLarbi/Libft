@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 21:22:09 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/09 13:01:46 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/13 16:54:59 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ struct				s_list
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void const *,
+void				ft_lstdelone(t_list **alst, void (*del)(void *,
 			size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstdel(t_list **alst, void (*del)(void const*, size_t));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memcpy(void	*dst, const void *src, size_t n);
@@ -42,6 +42,7 @@ void				ft_striteri(char *s, void (*f) (unsigned int, char *));
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_bzero(void *s, size_t n);
+void				ft_swap(char **first, char **second);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr(char const *s);
@@ -52,6 +53,7 @@ void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
+int					ft_isspace(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);

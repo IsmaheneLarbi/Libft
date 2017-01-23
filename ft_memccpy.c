@@ -6,11 +6,10 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 14:32:36 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/20 17:12:27 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/13 14:58:08 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)

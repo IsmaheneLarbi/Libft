@@ -6,11 +6,10 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/18 13:17:15 by ilarbi            #+#    #+#             */
-/*   Updated: 2016/12/20 17:15:29 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/13 14:57:48 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)

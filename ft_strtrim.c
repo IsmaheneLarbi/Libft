@@ -6,7 +6,7 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/27 16:44:20 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/09 13:42:40 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/09 17:11:26 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 
 char	*ft_strtrim(char const *s)
 {
-	size_t	start;
-	size_t	end;
+	int		start;
+	int		end;
+	int		len;
 	char	*fresh;
 
 	start = 0;
+	fresh = NULL;
 	if (s)
 	{
 		end = ft_strlen(s) - 1;
 		while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
 			start++;
-		if (end == 0 || start == end + 1)
-			return ("");
 		while (s[end] == ' ' || s[end] == '\n' || s[end] == '\t')
 			end--;
-		fresh = (char *)malloc(sizeof(char) * (end - start + 2));
+		((start > end) ? (len = 1) :
+		(len = end - start + 2));
+		fresh = (char *)malloc(sizeof(char) * (len));
 		if (fresh != NULL)
 		{
-			ft_memcpy(fresh, &s[start], end - start + 1);
-			fresh[end - start + 1] = '\0';
+			ft_memcpy(fresh, &s[start], len - 1);
+			fresh[len - 1] = '\0';
 		}
 	}
-	return ((s) ? fresh : NULL);
+	return (fresh);
 }

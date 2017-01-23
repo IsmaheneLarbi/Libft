@@ -6,11 +6,12 @@
 #    By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 11:58:56 by ilarbi            #+#    #+#              #
-#    Updated: 2017/01/05 20:35:00 by ilarbi           ###   ########.fr        #
+#    Updated: 2017/01/13 16:55:47 by ilarbi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS=-Wall -Wextra -Werror
+
+CFLAGS=-c -Wall -Wextra -Werror
 NAME= libft.a
 SRC= ft_itoa.c \
 	 ft_lstmap.c \
@@ -69,18 +70,80 @@ SRC= ft_itoa.c \
 	ft_strdel.c \
  	ft_strclr.c \
 	ft_strequ.c \
-	ft_strnequ.c
+	ft_strnequ.c \
+	ft_isspace.c \
+	ft_swap.c
+
+OBJ= ft_itoa.o \
+	 ft_lstmap.o \
+	 ft_lstadd.o \
+	 ft_lstdel.o \
+	 ft_lstiter.o \
+	 ft_lstdelone.o \
+	 ft_lstnew.o \
+	 ft_strsplit.o \
+	 ft_strtrim.o \
+	 ft_strjoin.o \
+	 ft_strsub.o \
+	 ft_strmapi.o \
+	 ft_strmap.o \
+	 ft_striteri.o \
+	 ft_striter.o \
+	 ft_putnbr_fd.o \
+	 ft_putendl_fd.o \
+	 ft_putstr_fd.o \
+	 ft_putchar_fd.o \
+	 ft_putendl.o \
+	ft_isdigit.o \
+	 ft_isalpha.o \
+	 ft_isalnum.o \
+	 ft_tolower.o \
+	 ft_toupper.o \
+	 ft_strlen.o \
+	 ft_strcmp.o \
+	 ft_isprint.o \
+	 ft_memset.o \
+	 ft_memcpy.o \
+	 ft_memccpy.o \
+	 ft_memchr.o \
+	 ft_memcmp.o \
+	 ft_memmove.o \
+	 ft_memalloc.o \
+	 ft_memdel.o \
+	 ft_putnbr.o \
+	 ft_putchar.o \
+	 ft_putstr.o \
+	 ft_atoi.o \
+	 ft_isascii.o \
+	 ft_strncmp.o \
+	 ft_strdup.o \
+	 ft_strcpy.o \
+	 ft_strncpy.o \
+	 ft_strcat.o \
+	 ft_strncat.o \
+	 ft_strlcat.o \
+	 ft_strstr.o \
+	 ft_strnstr.o \
+	 ft_strchr.o \
+	 ft_strrchr.o \
+	 ft_bzero.o \
+	ft_strnew.o \
+	ft_strdel.o \
+ 	ft_strclr.o \
+	ft_strequ.o \
+	ft_strnequ.o \
+	ft_isspace.o \
+	ft_swap.o
 
 INCLUDES= libft.h
-OBJS= $(SRC:.c=.o)
 
 all: $(NAME)
-$(NAME): $(OBJS)
+$(NAME): $(OBJ) 
 	ar rc $(NAME) $^
-%.o: %.c
-	gcc -c $(CFLAGS) $^ -I INCLUDES -o $@
+$(OBJ):
+	gcc  $(CFLAGS) $^ -I $(INCLUDES) $(SRC) 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 fclean: clean
 	rm -rf $(NAME)
 re: fclean all

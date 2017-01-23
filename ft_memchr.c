@@ -6,11 +6,10 @@
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 18:03:47 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/01/09 13:36:33 by ilarbi           ###   ########.fr       */
+/*   Updated: 2017/01/13 14:57:35 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
