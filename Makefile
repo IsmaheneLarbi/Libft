@@ -6,14 +6,31 @@
 #    By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/09 11:58:56 by ilarbi            #+#    #+#              #
-#    Updated: 2017/01/13 16:55:47 by ilarbi           ###   ########.fr        #
+#    Updated: 2017/10/05 18:21:44 by ilarbi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 CFLAGS=-c -Wall -Wextra -Werror
-NAME= libft.a
-SRC= ft_itoa.c \
+NAME= ./libft.a
+SRC=  get_next_line.c \
+	  ft_htoi.c \
+	  ft_abs.c \
+	  ft_putc.c \
+	  ft_putwchar.c \
+	  ft_wchart.c \
+	  ft_putwstr.c \
+	  ft_wstrlen.c \
+	  ft_power.c \
+	  ft_bin_to_dec.c \
+	  ft_nbrsize.c \
+	  ft_nbrssize.c \
+	  ft_nbrusize.c \
+	  ft_atoistr.c \
+	 ft_strjoin_free.c \
+	 ft_itoa.c \
+	 ft_itoa_base.c \
+	 ft_itoa_max_base.c \
+	 ft_uitoa_max_base.c \
 	 ft_lstmap.c \
 	 ft_lstadd.c \
 	 ft_lstdel.c \
@@ -33,7 +50,7 @@ SRC= ft_itoa.c \
 	 ft_putstr_fd.c \
 	 ft_putchar_fd.c \
 	 ft_putendl.c \
-	ft_isdigit.c \
+	 ft_isdigit.c \
 	 ft_isalpha.c \
 	 ft_isalnum.c \
 	 ft_tolower.c \
@@ -66,15 +83,34 @@ SRC= ft_itoa.c \
 	 ft_strchr.c \
 	 ft_strrchr.c \
 	 ft_bzero.c \
-	ft_strnew.c \
-	ft_strdel.c \
- 	ft_strclr.c \
-	ft_strequ.c \
-	ft_strnequ.c \
-	ft_isspace.c \
-	ft_swap.c
-
-OBJ= ft_itoa.o \
+	 ft_strnew.c \
+	 ft_strdel.c \
+	 ft_strclr.c \
+	 ft_strequ.c \
+	 ft_strnequ.c \
+	 ft_isspace.c \
+	 ft_swap.c \
+	 ft_strminimalize.c \
+	 ft_wc.c
+OBJ= get_next_line.o \
+	 ft_htoi.o \
+	 ft_abs.o \
+	 ft_putc.o \
+	 ft_wchart.o \
+	 ft_putwchar.o \
+	  ft_putwstr.o \
+	  ft_wstrlen.o \
+	 ft_power.o \
+	 ft_bin_to_dec.o \
+	 ft_nbrsize.o \
+	 ft_nbrssize.o \
+	 ft_nbrusize.o \
+	 ft_atoistr.o \
+	 ft_strjoin_free.o \
+	 ft_itoa.o \
+	 ft_itoa_base.o \
+	 ft_itoa_max_base.o \
+	 ft_uitoa_max_base.o \
 	 ft_lstmap.o \
 	 ft_lstadd.o \
 	 ft_lstdel.o \
@@ -94,7 +130,7 @@ OBJ= ft_itoa.o \
 	 ft_putstr_fd.o \
 	 ft_putchar_fd.o \
 	 ft_putendl.o \
-	ft_isdigit.o \
+	 ft_isdigit.o \
 	 ft_isalpha.o \
 	 ft_isalnum.o \
 	 ft_tolower.o \
@@ -127,21 +163,22 @@ OBJ= ft_itoa.o \
 	 ft_strchr.o \
 	 ft_strrchr.o \
 	 ft_bzero.o \
-	ft_strnew.o \
-	ft_strdel.o \
- 	ft_strclr.o \
-	ft_strequ.o \
-	ft_strnequ.o \
-	ft_isspace.o \
-	ft_swap.o
-
+	 ft_strnew.o \
+	 ft_strdel.o \
+	 ft_strclr.o \
+	 ft_strequ.o \
+	 ft_strnequ.o \
+	 ft_isspace.o \
+	 ft_swap.o \
+	 ft_strminimalize.o \
+	 ft_wc.o
 INCLUDES= libft.h
 
 all: $(NAME)
 $(NAME): $(OBJ) 
 	ar rc $(NAME) $^
 $(OBJ):
-	gcc  $(CFLAGS) $^ -I $(INCLUDES) $(SRC) 
+	gcc  $(CFLAGS) $^ $(SRC) 
 clean:
 	rm -f $(OBJ)
 fclean: clean

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/06/03 18:23:01 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/10/05 17:39:46 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+unsigned int	ft_power(unsigned int base, int ex)
 {
-	new->next = *alst;
-	*alst = new;
+	if (ex == 0)
+		return (1);
+	if (ex == 1)
+		return (base);
+	if (ex > 1)
+		return (base * ft_power(base, ex - 1));
+	return (-1);
 }

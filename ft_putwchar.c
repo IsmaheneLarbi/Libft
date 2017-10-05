@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_putwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/06/03 17:47:33 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/08/22 13:43:19 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_putwchar(wchar_t letter)
 {
-	new->next = *alst;
-	*alst = new;
+	int		i;
+	char	**wc;
+	int		tab[4];
+
+	i = 0;
+	wc = ft_strsplit(ft_wchart(letter), ' ');
+	if ((MB_CUR_MAX == 1 && letter < 256) || (MB_CUR_MAX > 1 && letter < 128))
+	{
+		write(1, (char *)&letter, 1);
+		return ;
+	}
+	while (wc[i])
+	{
+		tab[i] = ft_bin_to_dec(wc[i]);
+		write(1, &tab[i], 1);
+		i++;
+	}
 }

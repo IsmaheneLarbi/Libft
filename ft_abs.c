@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/10/05 17:03:32 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/10/05 17:04:32 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+unsigned int	ft_abs(int number)
 {
-	new->next = *alst;
-	*alst = new;
+	return ((number >= 0) ? number : -number);
 }

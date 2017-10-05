@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/06/03 19:00:34 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/06/08 13:24:44 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <wchar.h>
 
-void	ft_lstadd(t_list **alst, t_list *new)
+size_t	ft_wstrlen(wchar_t *s)
 {
-	new->next = *alst;
-	*alst = new;
+	size_t	size;
+
+	size = 0;
+	while (*s++)
+		size++;
+	return (size);
 }

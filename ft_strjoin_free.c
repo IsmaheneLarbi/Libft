@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/02/18 16:50:57 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/08/27 21:53:42 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+char	*ft_strjoin_free(char *s1, int free1, char *s2, int free2)
 {
-	new->next = *alst;
-	*alst = new;
+	char	*fresh;
+
+	fresh = NULL;
+	if (s1 && s2)
+	{
+		fresh = ft_strjoin(s1, s2);
+		if (free1)
+			ft_strdel(&s1);
+		if (free2)
+			ft_strdel(&s2);
+	}
+	return (fresh);
 }

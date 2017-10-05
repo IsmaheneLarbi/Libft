@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_nbrsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilarbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/30 18:02:31 by ilarbi            #+#    #+#             */
-/*   Updated: 2017/05/02 13:13:54 by ilarbi           ###   ########.fr       */
+/*   Created: 2017/05/25 17:09:10 by ilarbi            #+#    #+#             */
+/*   Updated: 2017/08/27 21:01:01 by ilarbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_nbrsize(int number, int base)
 {
-	new->next = *alst;
-	*alst = new;
+	int	size;
+
+	size = 0;
+	if (number == 0)
+		return (++size);
+	if (number < 0 && (size += 1))
+		number = -number;
+	while (number > 0)
+	{
+		size++;
+		number /= base;
+	}
+	return (size);
 }
