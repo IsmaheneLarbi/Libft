@@ -19,7 +19,7 @@ unsigned int	ft_bin_to_dec(char *bin)
 	unsigned int	result;
 
 	if (!bin)
-		exit(-1);
+		exit(1);
 	i = 0;
 	size = ft_strlen(bin) - 1;
 	result = 0;
